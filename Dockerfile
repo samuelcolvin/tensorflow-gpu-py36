@@ -1,5 +1,7 @@
 FROM nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
 
+LABEL maintainer 's@muelcolvin.com'
+
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
         build-essential \
@@ -11,8 +13,6 @@ RUN apt-get update \
  && apt-get install -y python3.6 python3.6-dev \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
-
-LABEL maintainer 's@muelcolvin.com'
 
 # pip has to be installed before setuptools, setuptools has to be installed before tensorflow
 RUN python3.6 -m pip install --no-cache-dir -U pip
