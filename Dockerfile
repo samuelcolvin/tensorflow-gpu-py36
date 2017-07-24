@@ -17,7 +17,9 @@ RUN apt-get update \
 # pip has to be installed before setuptools, setuptools has to be installed before tensorflow
 RUN python3.6 -m pip install --no-cache-dir -U pip
 RUN python3.6 -m pip install --no-cache-dir -U setuptools
-RUN python3.6 -m pip install --no-cache-dir ipython requests tensorflow-gpu==1.3.0rc0
+# also useful
+RUN python3.6 -m pip install --no-cache-dir ipython requests numpy pandas quandl
+RUN python3.6 -m pip install --no-cache-dir tensorflow-gpu==1.3.0rc0
 RUN ln -s /usr/bin/python3.6 /usr/bin/python
 
 CMD ["ipython"]
